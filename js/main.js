@@ -51,17 +51,18 @@ botonesheder.forEach(boton => boton.addEventListener("click", (event) => {
     for(let i = 1; i<= 493; i++){
     fetch(URL + i)
     .then((response) => response.json())
-    .then(poke => {
+    .then(data => {
 
         if(botonId === 'Ver todos'){
-            mostrarPokemon(poke);
+            mostrarPokemon(data);
         } else {
             const tipos = data.types.map(type => type.type.name);
         if(tipos.some(tipo => tipo.includes(botonId)))
-            mostrarPokemon(poke);
+            mostrarPokemon(data);
         }
 
     })
 }
 }));
+
 
